@@ -1,0 +1,538 @@
+﻿@model DataEntry.Models.TableViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+
+    <style>
+    table {
+        font-family: Verdana;
+    }
+
+    body {
+        font: 1.2em normal Arial,sans-serif;
+        color: #0063A7;
+    }
+
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        font-size: 2.5em;
+        margin: 20px 0;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border-spacing: 50px;
+    }
+
+    .blue {
+        border: 2px solid #0063A7;
+    }
+
+        .blue thead {
+            background: #0063A7;
+        }
+
+    thead {
+        color: white;
+    }
+
+    th, td {
+        text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #ECF0F1;
+    }
+
+    tbody tr:nth-child(odd) {
+        background: #FFFFFF;
+    }
+
+    tbody tr:hover {
+        background: #BDC3C7;
+        color: #FFFFFF;
+    }
+
+    .fixed {
+        top: 0;
+        position: fixed;
+        width: auto;
+        display: none;
+        border: none;
+    }
+
+    .scrollMore {
+        margin-top: 200px;
+    }
+
+    .up {
+        cursor: pointer;
+    }
+
+    label {
+        display: inline-block;
+        width: 5em;
+    }
+
+    #tabs-1, #tabs-2, #tabs-3,#tabs {
+        background-color: #0063A7;
+    }
+    .tab-color{
+        background-color: #0063A7;
+    }
+</style>
+
+</head>
+
+<body>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by Destination: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+
+
+
+}
+
+
+    <div id="tabs" style="overflow:auto; ">
+        <ul>
+            <li class="tab-color"><a href="#tabs-1">Past Flights</a></li>
+            <li class="tab-color"><a href="#tabs-2">Current Flights</a></li>
+            <li class="tab-color"><a href="#tabs-3">Upcoming Flights</a></li>
+        </ul>
+        <div id="tabs-1">
+            <table class="blue footable" data-filter="#filter">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            Flight
+                        </th>
+                        <th>
+                            Destination
+                        </th>
+                        <th>
+                            STD 
+                        </th>
+                        <th>
+                            ATD 
+                        </th>
+                        <th>
+                            A/C Type
+                        </th>
+                        <th>
+                           A/C
+                        </th>
+                        <th>
+                            Gate
+                        </th>
+                        <th>
+                           In Pad
+                        </th>
+                        <th>
+                            Type 1 Spray
+                        </th>
+
+                        <th>
+                            Type 4 Spray
+
+                        </th>
+                        <th>
+                           Out Pad
+                        </th>
+                        <th>
+                           Precipitation Type
+                        </th>
+                        <th>
+                            Off
+                        </th>
+                        <th>
+                            Runway
+                        </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PastTime)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Flight)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Destination)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STD)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ATD)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.A_C_Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.A_C)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.In_Pad)
+                            </td>
+                            <td>
+                                Start: @Html.DisplayFor(modelItem => item.Start_Spray_Type_1)<br />
+
+
+                                Stop: @Html.DisplayFor(modelItem => item.Stop_Spray_Type_1)<br />
+
+                                Gallons: @Html.DisplayFor(modelItem => item.Type_1_Gallons)
+                            </td>
+                            <td>
+                                Start: @Html.DisplayFor(modelItem => item.Start_Spray_Type_4)<br />
+
+
+                                Stop: @Html.DisplayFor(modelItem => item.Stop_Spray_Type_4)<br />
+
+                                Gallons: @Html.DisplayFor(modelItem => item.Type_4_Gallons)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Out_Pad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Precipitation_Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Off)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Runway)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div id="tabs-2">
+            <div id="tabs-1">
+                <table class="blue footable" data-filter="#filter">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                Flight
+                            </th>
+                            <th>
+                               Destination
+                            </th>
+                            <th>
+                              STD
+                            </th>
+                            <th>
+                               ATD
+                            </th>
+                            <th>
+                                A/C Type
+                            </th>
+                            <th>
+                               A/C
+                            </th>
+                            <th>
+                               Gate
+                            </th>
+                            <th>
+                            In Pad
+                            </th>
+                            <th>
+                                Type 1 Spray
+                            </th>
+
+                            <th>
+                                Type 4 Spray
+
+                            </th>
+                            <th>
+                             Out Pad
+                            </th>
+                            <th>
+                                Precipitation Type
+                            </th>
+                            <th>
+                               Off
+                            </th>
+                            <th>
+                                Runway
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CurrentFlight)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Flight)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Destination)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.STD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ATD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.A_C_Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.A_C)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.In_Pad)
+                                </td>
+                                <td>
+                                    Start: @Html.DisplayFor(modelItem => item.Start_Spray_Type_1)<br />
+
+
+                                    Stop: @Html.DisplayFor(modelItem => item.Stop_Spray_Type_1)<br />
+
+                                    Gallons: @Html.DisplayFor(modelItem => item.Type_1_Gallons)
+                                </td>
+                                <td>
+                                    Start: @Html.DisplayFor(modelItem => item.Start_Spray_Type_4)<br />
+
+
+                                    Stop: @Html.DisplayFor(modelItem => item.Stop_Spray_Type_4)<br />
+
+                                    Gallons: @Html.DisplayFor(modelItem => item.Type_4_Gallons)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Out_Pad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Precipitation_Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Off)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Runway)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="tabs-3">
+            <div id="tabs-1">
+                <table class="blue footable" data-filter="#filter">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                Flight
+                            </th>
+                            
+                            <th>
+                                Destination
+                            </th>
+                            <th>
+                                STD
+                            </th>
+                            <th>
+                                ATD
+                            </th>
+                            <th>
+                                A/C Type
+                            </th>
+                            <th>
+                                A/C
+                            </th>
+                            <th>
+                                Gate
+                            </th>
+                            <th>
+                                In Pad
+                            </th>
+                            <th>
+                                Type 1 Spray
+                            </th>
+
+                            <th>
+                                Type 4 Spray
+
+                            </th>
+                            <th>
+                                Out Pad
+                            </th>
+                            <th>
+                                Precipitation Type
+                            </th>
+                            <th>
+                                Off
+                            </th>
+                            <th>
+                                Runway
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.UpcomingFlight)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Flight)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Destination)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.STD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ATD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.A_C_Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.A_C)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.In_Pad)
+                                </td>
+                                <td>
+                                    Start: @Html.DisplayFor(modelItem => item.Start_Spray_Type_1)<br />
+
+
+                                    Stop: @Html.DisplayFor(modelItem => item.Stop_Spray_Type_1)<br />
+
+                                    Gallons: @Html.DisplayFor(modelItem => item.Type_1_Gallons)
+                                </td>
+                                <td>
+                                    Start: @Html.DisplayFor(modelItem => item.Start_Spray_Type_4)<br />
+
+
+                                    Stop: @Html.DisplayFor(modelItem => item.Stop_Spray_Type_4)<br />
+
+                                    Gallons: @Html.DisplayFor(modelItem => item.Type_4_Gallons)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Out_Pad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Precipitation_Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Off)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Runway)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+  $(function () {
+  $("#TabsSet1").tabs();
+  $("#TabsSet2").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+  $("#TabsSet2 li").removeClass("ui-corner-top").addClass("ui-corner-left");
+ });
+    </script>
+
+    <h1 class="up scrollMore" style="color:#FFFFFF">&uarr; Click to Return to Top &uarr;</h1>
+</body>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    
+        
+
+        <script>
+
+            $(document).ready(function () {
+
+                $(".up").click(function () {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 700);
+                });
+            });
+        </script>
+
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+        <script>
+             $(function () {
+                $("#TabsSet1").tabs();
+                $("#TabsSet2").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+                $("#TabsSet2 li").removeClass("ui-corner-top").addClass("ui-corner-left");
+               });
+</script>
+
+        <script>
+            $(document).ready(function () {
+                $('#tabs').tabs();
+            });
+
+
+        </script>
+
+
+    }

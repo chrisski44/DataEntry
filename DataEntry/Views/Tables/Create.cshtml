@@ -1,0 +1,375 @@
+﻿@model DataEntry.Models.Table
+<span style="color:#F2F1F4">
+    @{
+        ViewBag.Title = "Create";
+    }
+</span>
+<head>
+    
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        
+
+        <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+
+    <style>
+
+ .blended_grid{
+ display : block;
+ width : 1050px;
+ overflow : auto;
+ margin : 100px auto 0 auto;
+ border-left:1px solid #0e17ef;
+ border-right:1px solid #0e17ef
+}
+.topBanner{
+ padding-top: 10px;
+
+ clear : none;
+ height : 100px;
+ width : 1000px;
+
+ padding-left:300px;
+}
+.middleBanner{
+
+padding-top:10px;
+ float : left;
+ clear : none;
+ height : 350px;
+ width : 1000px;
+ padding-left:30px;
+}
+.leftBanner{
+
+ float : left;
+ clear : none;
+ height : 250px;
+ width : 500px;
+ padding-left: 140px;
+ padding-right:30px;
+}
+.centerBanner{
+
+ float : left;
+ clear : none;
+ height : 250px;
+ 
+}
+.rightBanner{
+ 
+ float : left;
+ clear : none;
+ height : 250px;
+ width : 500px;
+ padding-left: 65px;
+ padding-right:100px;
+}
+.bottomBanner{
+
+ float : left;
+ clear : none;
+ height : 100px;
+ width : 1000px;
+ padding-bottom:50px;
+ 
+}
+
+.middleRightBanner{
+    clear:none;
+    float:left;
+    height:100px;
+    width:400px;
+    padding-left:30px;
+}
+
+.middleLeftBanner{
+    clear:none;
+    float:left;
+    height:100px;
+    width:500px;
+    padding-left:100px;
+}
+hr{
+    border-color:#0063A7;
+    color:#0063A7;
+    background-color:#0063A7;
+    }
+.button1 {
+    background-color: #0063A7;
+    border:none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+        transition-duration: 0.4s;
+    
+}
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.scroll{
+    overflow:hidden;
+}
+
+.changefont{
+    font-family:Verdana;
+}
+    </style>
+</head>
+<body style="color:#0063A7">
+    <h2>Create</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken() 
+            <div class="blended_grid scroll" style="background-color:#F2F1F4;">
+            <div class="form-horizontal scroll changefont">
+                <h2 style="padding-left:30px; padding-top:8px;">Flight Information</h2>
+                <hr />
+                    
+                    <div class="topBanner">
+                       
+                     
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", style = "height:30px; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Flight, htmlAttributes: new { @class = " col-md-2"})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Flight, new { htmlAttributes = new { @class = "form-control", style = "height:30px; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.Flight, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Destination, htmlAttributes: new { @class = " col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @class = "form-control" , style="height:30px; width:234px"} })
+                                @Html.ValidationMessageFor(model => model.Destination, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.STD, htmlAttributes: new { @class = "col-md-2" })
+
+                            <div class="col-md-10 input-append date datetimepicker">
+                                @Html.TextBoxFor(model => model.STD, new { htmlAttributes = new { @class = "form-control", style = "height:50px" } })
+                                @Html.ValidationMessageFor(model => model.STD, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                       
+                    </div>
+                    </div>
+
+                    <div class="middleBanner changefont">
+                        <h3>Additional Info</h3>
+                        <hr/>
+                      <div class="middleLeftBanner">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ATD, htmlAttributes: new { @class = "col-md-2" })
+                            <div class="col-md-10 input-append date datetimepicker" style="height:30px">
+                                @Html.TextBoxFor(model => model.ATD, new { htmlAttributes = new { @class = "form-control", style = "height:30px" } })
+                                @Html.ValidationMessageFor(model => model.ATD, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.A_C_Type, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.A_C_Type, new { htmlAttributes = new { @class = "form-control", style = "height:30px ; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.A_C_Type, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.A_C, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.A_C, new { htmlAttributes = new { @class = "form-control", style = "height:30px; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.A_C, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Gate, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Gate, new { htmlAttributes = new { @class = "form-control", style = "height:30px; width:234px " } })
+                                @Html.ValidationMessageFor(model => model.Gate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.In_Pad, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10 input-append date datetimepicker">
+                                @Html.TextBoxFor(model => model.In_Pad, new { htmlAttributes = new { @class = "form-control", style = "height:30px; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.In_Pad, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="middleRightBanner">
+                <div class="form-group changefont">
+                    @Html.LabelFor(model => model.Out_Pad, htmlAttributes: new { @class = "  col-md-2" })
+                    <div class="col-md-10 input-append date datetimepicker">
+                        @Html.TextBoxFor(model => model.Out_Pad, new { htmlAttributes = new { @class = "form-control", style = "height:30px ; width:234px" } })
+                        @Html.ValidationMessageFor(model => model.Out_Pad, "", new { @class = "text-danger" })
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group changefont ">
+                    @Html.LabelFor(model => model.Precipitation_Type, htmlAttributes: new { @class = "  col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Precipitation_Type, new { htmlAttributes = new { @class = "form-control", style = "height:30px; width: 234px" } })
+                        @Html.ValidationMessageFor(model => model.Precipitation_Type, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group changefont">
+                    @Html.LabelFor(model => model.Off, htmlAttributes: new { @class = "  col-md-2" })
+                    <div class="col-md-10 input-append date datetimepicker">
+                        @Html.TextBoxFor(model => model.Off, new { htmlAttributes = new { @class = "form-control", style = "height:30px " } })
+                        @Html.ValidationMessageFor(model => model.Off, "", new { @class = "text-danger" })
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group changefont">
+                    @Html.LabelFor(model => model.Runway, htmlAttributes: new { @class = "  col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Runway, new { htmlAttributes = new { @class = "form-control", style = "height:30px ; width:234px" } })
+                        @Html.ValidationMessageFor(model => model.Runway, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                </div>
+            </div>
+
+                 <div class="leftBanner changefont">
+                     <h4>Spray Type 1</h4>
+                     <hr />
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Start_Spray_Type_1, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10 input-append date datetimepicker">
+                                @Html.TextBoxFor(model => model.Start_Spray_Type_1, new { htmlAttributes = new { @class = "form-control", style = "height:30px" } })
+                                @Html.ValidationMessageFor(model => model.Start_Spray_Type_1, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Stop_Spray_Type_1, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10 input-append date datetimepicker">
+                                @Html.TextBoxFor(model => model.Stop_Spray_Type_1, new { htmlAttributes = new { @class = "form-control", style = "height:30px" } })
+                                @Html.ValidationMessageFor(model => model.Stop_Spray_Type_1, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Type_1_Gallons, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Type_1_Gallons, new { htmlAttributes = new { @class = "form-control", style = "height:30px ; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.Type_1_Gallons, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="rightBanner changefont">
+                        <h4>Spray Type 4</h4>
+                        <hr />
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Start_Spray_Type_4, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10 input-append date datetimepicker">
+                                @Html.TextBoxFor(model => model.Start_Spray_Type_4, new { htmlAttributes = new { @class = "form-control", style = "height:30px" } })
+                                @Html.ValidationMessageFor(model => model.Start_Spray_Type_4, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Stop_Spray_Type_4, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10 input-append date datetimepicker">
+                                @Html.TextBoxFor(model => model.Stop_Spray_Type_4, new { htmlAttributes = new { @class = "form-control", style = "height:30px" } })
+                                @Html.ValidationMessageFor(model => model.Stop_Spray_Type_4, "", new { @class = "text-danger" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group changefont">
+                            @Html.LabelFor(model => model.Type_4_Gallons, htmlAttributes: new { @class = "  col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Type_4_Gallons, new { htmlAttributes = new { @class = "form-control", style = "height:30px ; width:234px" } })
+                                @Html.ValidationMessageFor(model => model.Type_4_Gallons, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-group changefont" style="padding-left:320px; padding-bottom:10px">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="button1 button2" />
+                    </div>
+                </div>
+                </div>
+
+                    
+
+            </div>    
+        
+    }
+        
+            <div style="color:#F2F1F4">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+</body>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+
+
+
+
+                <script type="text/javascript"
+                        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+                </script>
+                <script type="text/javascript"
+                        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+                </script>
+                <script type="text/javascript">
+                    $('.datetimepicker').datetimepicker({
+                        format: 'MM/dd/yyyy hh:mm:ss',
+                        language: 'en',
+                        
+                        
+                    });
+                </script>
+
+            }

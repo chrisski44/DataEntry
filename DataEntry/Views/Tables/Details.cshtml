@@ -1,0 +1,267 @@
+﻿@model DataEntry.Models.Table
+
+@{
+    ViewBag.Title = "Details";
+}
+<head>
+    <style>
+        body {
+            color: #F2F1F4;
+            font-family:Verdana;
+        }
+    </style>
+</head>
+<body>
+<h2>Details</h2>
+
+<div>
+    <h4>Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Flight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_C_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_C_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_C)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_C)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.In_Pad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.In_Pad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Spray_Type_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Spray_Type_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stop_Spray_Type_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stop_Spray_Type_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type_1_Gallons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_1_Gallons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Spray_Type_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Spray_Type_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stop_Spray_Type_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stop_Spray_Type_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type_4_Gallons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_4_Gallons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Out_Pad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Out_Pad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precipitation_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precipitation_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Off)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Off)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Runway)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Runway)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Out_to_In)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Out_to_In)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.In_to_Out)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.In_to_Out)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type_1_Spray_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_1_Spray_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type_4_Spray_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_4_Spray_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Spray_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Spray_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hourly_TP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hourly_TP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Out_to_Off)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Out_to_Off)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Out_to_Off)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Out_to_Off)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percent_of_Taxi_Time_to_Pad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percent_of_Taxi_Time_to_Pad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percent_of_Taxi_Time_On_Pad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percent_of_Taxi_Time_On_Pad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percent_On_Pad_vs_Spray_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percent_On_Pad_vs_Spray_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percent_of_Taxi_Time_From_Pad_to_Takeoff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percent_of_Taxi_Time_From_Pad_to_Takeoff)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</body>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WinterOperationsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Flight" Type="int" Nullable="false" />
+          <Property Name="Destination" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="STD" Type="datetime" Nullable="false" />
+          <Property Name="ATD" Type="datetime" />
+          <Property Name="A/C Type" Type="varchar" MaxLength="10" />
+          <Property Name="A/C" Type="int" />
+          <Property Name="Gate" Type="varchar" MaxLength="5" />
+          <Property Name="In Pad" Type="datetime" />
+          <Property Name="Start Spray Type 1" Type="datetime" />
+          <Property Name="Stop Spray Type 1" Type="datetime" />
+          <Property Name="Type 1 Gallons" Type="int" />
+          <Property Name="Start Spray Type 4" Type="datetime" />
+          <Property Name="Stop Spray Type 4" Type="datetime" />
+          <Property Name="Type 4 Gallons" Type="int" />
+          <Property Name="Out Pad" Type="datetime" />
+          <Property Name="Precipitation Type" Type="varchar" MaxLength="10" />
+          <Property Name="Off" Type="datetime" />
+          <Property Name="Runway" Type="varchar" MaxLength="10" />
+          <Property Name="Out to In" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="In to Out" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Type 1 Spray Time" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Type 4 Spray Time" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Total Spray Time" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Hourly TP" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Out to Off" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Total Out to Off" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Percent of Taxi Time to Pad" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="Percent of Taxi Time On Pad" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="Percent On Pad vs Spray Time" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="Percent of Taxi Time From Pad to Takeoff" Type="float" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="WinterOperationsModelStoreContainer">
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WinterOperationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Flight" Type="Int32" Nullable="false" />
+          <Property Name="Destination" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="STD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ATD" Type="DateTime" Precision="3" />
+          <Property Name="A_C_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="A_C" Type="Int32" />
+          <Property Name="Gate" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="In_Pad" Type="DateTime" Precision="3" />
+          <Property Name="Start_Spray_Type_1" Type="DateTime" Precision="3" />
+          <Property Name="Stop_Spray_Type_1" Type="DateTime" Precision="3" />
+          <Property Name="Type_1_Gallons" Type="Int32" />
+          <Property Name="Start_Spray_Type_4" Type="DateTime" Precision="3" />
+          <Property Name="Stop_Spray_Type_4" Type="DateTime" Precision="3" />
+          <Property Name="Type_4_Gallons" Type="Int32" />
+          <Property Name="Out_Pad" Type="DateTime" Precision="3" />
+          <Property Name="Precipitation_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Off" Type="DateTime" Precision="3" />
+          <Property Name="Runway" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Out_to_In" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="In_to_Out" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Type_1_Spray_Time" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Type_4_Spray_Time" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Total_Spray_Time" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Hourly_TP" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Out_to_Off" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Total_Out_to_Off" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Percent_of_Taxi_Time_to_Pad" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Percent_of_Taxi_Time_On_Pad" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Percent_On_Pad_vs_Spray_Time" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Percent_of_Taxi_Time_From_Pad_to_Takeoff" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="WinterOperationsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WinterOperationsModelStoreContainer" CdmEntityContainer="WinterOperationsEntities">
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="WinterOperationsModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Flight" ColumnName="Flight" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="STD" ColumnName="STD" />
+                <ScalarProperty Name="ATD" ColumnName="ATD" />
+                <ScalarProperty Name="A_C_Type" ColumnName="A/C Type" />
+                <ScalarProperty Name="A_C" ColumnName="A/C" />
+                <ScalarProperty Name="Gate" ColumnName="Gate" />
+                <ScalarProperty Name="In_Pad" ColumnName="In Pad" />
+                <ScalarProperty Name="Start_Spray_Type_1" ColumnName="Start Spray Type 1" />
+                <ScalarProperty Name="Stop_Spray_Type_1" ColumnName="Stop Spray Type 1" />
+                <ScalarProperty Name="Type_1_Gallons" ColumnName="Type 1 Gallons" />
+                <ScalarProperty Name="Start_Spray_Type_4" ColumnName="Start Spray Type 4" />
+                <ScalarProperty Name="Stop_Spray_Type_4" ColumnName="Stop Spray Type 4" />
+                <ScalarProperty Name="Type_4_Gallons" ColumnName="Type 4 Gallons" />
+                <ScalarProperty Name="Out_Pad" ColumnName="Out Pad" />
+                <ScalarProperty Name="Precipitation_Type" ColumnName="Precipitation Type" />
+                <ScalarProperty Name="Off" ColumnName="Off" />
+                <ScalarProperty Name="Runway" ColumnName="Runway" />
+                <ScalarProperty Name="Out_to_In" ColumnName="Out to In" />
+                <ScalarProperty Name="In_to_Out" ColumnName="In to Out" />
+                <ScalarProperty Name="Type_1_Spray_Time" ColumnName="Type 1 Spray Time" />
+                <ScalarProperty Name="Type_4_Spray_Time" ColumnName="Type 4 Spray Time" />
+                <ScalarProperty Name="Total_Spray_Time" ColumnName="Total Spray Time" />
+                <ScalarProperty Name="Hourly_TP" ColumnName="Hourly TP" />
+                <ScalarProperty Name="Out_to_Off" ColumnName="Out to Off" />
+                <ScalarProperty Name="Total_Out_to_Off" ColumnName="Total Out to Off" />
+                <ScalarProperty Name="Percent_of_Taxi_Time_to_Pad" ColumnName="Percent of Taxi Time to Pad" />
+                <ScalarProperty Name="Percent_of_Taxi_Time_On_Pad" ColumnName="Percent of Taxi Time On Pad" />
+                <ScalarProperty Name="Percent_On_Pad_vs_Spray_Time" ColumnName="Percent On Pad vs Spray Time" />
+                <ScalarProperty Name="Percent_of_Taxi_Time_From_Pad_to_Takeoff" ColumnName="Percent of Taxi Time From Pad to Takeoff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
